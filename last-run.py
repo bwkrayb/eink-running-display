@@ -34,7 +34,7 @@ try:
     timeSec = str(int(duration % 60))
     calories = str(json_str["calories"])
     paceMin = str(int((duration / distanceInt) / 60)) 
-    paceSec = str(int((duration / distanceInt) % 60))
+    paceSec = str(int((duration / distanceInt) % 60)).zfill(2)
  
     body = ImageFont.truetype(os.path.join(pic_dir,'BebasNeue-Regular.ttf'), 20, index=0)
     other = ImageFont.truetype(os.path.join(pic_dir,'Anton-Regular.ttf'),25,index=0)
