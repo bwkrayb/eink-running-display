@@ -3,9 +3,11 @@ import time
 import urllib.request
 import json
 import ast
+import datetime
+from datetime import date
+from dateutil import parser
 from settings import SMASHRUN_TOKEN
 from lib.waveshare_epd import epd2in9_V2
-
 from PIL import Image, ImageDraw, ImageFont
 
 pic_dir = '/home/pi/eink-29/pics'
@@ -26,6 +28,17 @@ try:
     str_str = byte_str.decode('utf-8').strip("[]")
 
     json_str = json.loads(str_str)
+
+    time = parser.parse(json_str["startDateTimeLocal"])
+
+    timeStr = time.strftime("%x")
+
+    today = date.today().strftime("%x")
+
+    if timeStr == today:
+        runDate = "Today"
+    else:
+        runDate = timeStr
     
     distanceInt = round((json_str["distance"] * 0.621), 2)
     distance = str(distanceInt)
@@ -43,7 +56,7 @@ try:
     draw = ImageDraw.Draw(image)
 
     #draw.text((0, 0), weatherTempShort, font=body, fill=0, align='left')
-    draw.text((0, 0), "Last Run:", font=body, fill=0, align='left')
+    draw.text((0, 0), "Last Run: " + runDate, font=body, fill=0, align='left')
     
     draw.text((0, 18), "Distance: " + distance + " miles", font=other, fill=0, align='center')
     draw.text((0, 44), "Time: " + timeMin + ":" + timeSec, font=other, fill=0, align='center')
