@@ -1,0 +1,3 @@
+###Use this file to hold your smashrun api token. This can be acquired from smashrun's API documentation site.
+
+SMASHRUN_TOKEN = ""

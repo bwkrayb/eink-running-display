@@ -6,12 +6,30 @@ This is a small project that I started to just experiment with another eink disp
 
 
 Prerequisites:
+<<<<<<< HEAD
 enable SPI interface in raspi-config
 python3-pip
 python3-pil
 python3-numpy
 RPi.GPIO
 spidev
+=======
+
+enable SPI interface in raspi-config
+
+python3-pip
+
+python3-pil
+
+python3-numpy
+
+python3-dateutil
+
+RPi.GPIO
+
+spidev
+
+>>>>>>> 78af205a00142c8a1164e49828ff5930799446ef
 waveshare drivers installed from https://github.com/waveshare/e-Paper
 
 
