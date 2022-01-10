@@ -1,0 +1,3 @@
+# exclude the settings file with the api key
+settings.py
+__pycache__/*
