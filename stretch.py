@@ -25,7 +25,8 @@ try:
     #print('height:', h) 128
 
     runText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),54,index=0)
-    goodText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),80,index=0) 
+    goodText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),80,index=0)
+    badText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),80,index=0)
     image = Image.new(mode='1', size=(w, h), color=255)
     draw = ImageDraw.Draw(image)
     
@@ -59,6 +60,17 @@ try:
                 GPIO.output(LED_PIN, GPIO.LOW)
                 time.sleep(20)
                 exec(open("lg-last-run.py").read())
+                break
+            else:
+                time.sleep(2700)
+                badLine = "Bad! :("
+                display.init()
+                display.Clear(0)
+                image = Image.new(mode='1', size=(w,h),color=255)
+                draw = ImageDraw.Draw(image)
+                draw.text((indent(badLine,badText,w),-10),badLine,font=badText,fill=0,align='center')
+                display.display(display.getbuffer(image))
+                GPIO.output(LED_PIN,GPIO.LOW)
                 break
     except:
         GPIO.cleanup()
