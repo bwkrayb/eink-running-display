@@ -24,3 +24,4 @@ def indent(input,font,width):
 
 def indentThirds(input,font,width):
     return int(((width*1.5) - font.getsize(input)[0]) / 2)
+

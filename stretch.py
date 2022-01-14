@@ -43,14 +43,17 @@ try:
     LED_PIN = 27
     GPIO.setup(LED_PIN, GPIO.OUT)
 
-
+    timeout = 1800  #1800 = 30 minutes
+    timeout_start = time.time()
+    buttonPressed = False
  
     try:
-        while True:
+        while time.time() < timeout_start + timeout:
             button_state = GPIO.input(23)
             GPIO.output(LED_PIN, GPIO.HIGH)
             if button_state == False:
                 goodLine = "Good!"
+                buttonPressed = True
                 display.init()
                 display.Clear(0) # 0: Black, 255: White
                 image = Image.new(mode='1', size=(w,h),color=255)
@@ -61,17 +64,18 @@ try:
                 time.sleep(20)
                 exec(open("lg-last-run.py").read())
                 break
-            else:
-                time.sleep(2700)
-                badLine = "Bad! :("
-                display.init()
-                display.Clear(0)
-                image = Image.new(mode='1', size=(w,h),color=255)
-                draw = ImageDraw.Draw(image)
-                draw.text((indent(badLine,badText,w),-10),badLine,font=badText,fill=0,align='center')
-                display.display(display.getbuffer(image))
-                GPIO.output(LED_PIN,GPIO.LOW)
-                break
+
+        if buttonPressed == False:
+            badLine = "Bad! :("
+            display.init()
+            display.Clear(0)
+            image = Image.new(mode='1', size=(w,h),color=255)
+            draw = ImageDraw.Draw(image)
+            draw.text((indent(badLine,badText,w),-10),badLine,font=badText,fill=0,align='center')
+            display.display(display.getbuffer(image))
+            GPIO.output(LED_PIN,GPIO.LOW)
+            time.sleep(20)
+            exec(open("lg-last-run.py").read()) 
     except:
         GPIO.cleanup()
 
