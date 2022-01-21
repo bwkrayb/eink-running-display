@@ -52,7 +52,7 @@ try:
     distance = str(distanceInt)
     duration = json_str["duration"]
     timeMin = str(int(duration / 60))
-    timeSec = str(int(duration % 60))
+    timeSec = str(int(duration % 60)).zfill(2)
     calories = str(json_str["calories"])
     paceMin = str(int((duration / distanceInt) / 60)) 
     paceSec = str(int((duration / distanceInt) % 60)).zfill(2)

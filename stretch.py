@@ -62,7 +62,7 @@ try:
                 display.display(display.getbuffer(image))
                 GPIO.output(LED_PIN, GPIO.LOW)
                 time.sleep(20)
-                exec(open("lg-last-run.py").read())
+                exec(open("month-stats.py").read())
                 break
 
         if buttonPressed == False:
@@ -75,7 +75,7 @@ try:
             display.display(display.getbuffer(image))
             GPIO.output(LED_PIN,GPIO.LOW)
             time.sleep(20)
-            exec(open("lg-last-run.py").read()) 
+            exec(open("month-stats.py").read()) 
     except:
         GPIO.cleanup()
 
