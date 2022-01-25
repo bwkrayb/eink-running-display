@@ -52,17 +52,23 @@ try:
 
     dateText = ImageFont.truetype(os.path.join(pic_dir,'BebasNeue-Regular.ttf'), 30, index=0)
     runText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),45,index=0)
-    
+    labelText = ImageFont.truetype(os.path.join(pic_dir,'Oswald.ttf'),20,index=0)
     image = Image.new(mode='1', size=(w, h), color=255)
     draw = ImageDraw.Draw(image)
 
     datePrint = "Stats: " + today.strftime("%B") + " " + year
 
     draw.text((indent(datePrint,dateText,w), 0), datePrint, font=dateText, fill=0, align='left')
-    draw.text((indent(totalDist + " mi",runText,w/2), 20), totalDist + " mi", font=runText, fill=0, align='center')
-    draw.text((indent(runCount + " days",runText,w/2), 70), runCount + " days", font=runText, fill=0, align='center')
-    draw.text((indentThirds(longRun + " mi",runText,w), 20), longRun + " mi", font=runText, fill=0, align='center')
-    draw.text((indentThirds(avgLen + " mi",runText,w), 70), avgLen + " mi", font=runText, fill=0, align='center')
+    draw.text((indent(totalDist + "mi",runText,w/2), 20), totalDist + "mi", font=runText, fill=0, align='center')
+    draw.text((indent(runCount + "runs",runText,w/2), 70), runCount + "runs", font=runText, fill=0, align='center')
+    draw.text((indentThirds(longRun + "mi",runText,w) - 15, 20), longRun + "mi", font=runText, fill=0, align='center')
+    draw.text((indentThirds(avgLen + "mi",runText,w) - 15, 70), avgLen + "mi", font=runText, fill=0, align='center')
+
+    draw.text((270,100), "avg", font=labelText, fill=0, align='left') 
+    draw.text((270,20), "top", font=labelText, fill=0, align='left') 
+    #draw.text((0,0), datePrint, font=dateText, fill=0, align='left') 
+    #draw.text((0,0), datePrint, font=dateText, fill=0, align='left') 
+
     display.display(display.getbuffer(image))
 
 except IOError as e:

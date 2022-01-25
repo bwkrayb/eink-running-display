@@ -1,6 +1,6 @@
 # Enter these lines into your crontab file. As configured, the run display will update every 6 hours, and the stretch reminder will run at 9pm every night
 
 
-
-0 */6 * * * /home/pi/eink-29/bin/start.sh
+0 6,19 * * * /home/pi/eink-29/bin/monthly.sh
+0 10,14 * * * /home/pi/eink-29/bin/last-run.sh
 0 21 * * * /home/pi/eink-29/bin/stretch.sh
