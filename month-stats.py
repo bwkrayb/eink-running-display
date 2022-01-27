@@ -64,8 +64,8 @@ try:
     draw.text((indentThirds(longRun + "mi",runText,w) - 15, 20), longRun + "mi", font=runText, fill=0, align='center')
     draw.text((indentThirds(avgLen + "mi",runText,w) - 15, 70), avgLen + "mi", font=runText, fill=0, align='center')
 
-    draw.text((270,100), "avg", font=labelText, fill=0, align='left') 
-    draw.text((270,20), "top", font=labelText, fill=0, align='left') 
+    draw.text((270,95), "avg", font=labelText, fill=0, align='left') 
+    draw.text((270,45), "top", font=labelText, fill=0, align='left') 
     #draw.text((0,0), datePrint, font=dateText, fill=0, align='left') 
     #draw.text((0,0), datePrint, font=dateText, fill=0, align='left') 
 
