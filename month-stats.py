@@ -38,16 +38,18 @@ try:
     json_str = json.loads(str_str)
 
     totalDist = str(round((json_str["totalDistance"] * 0.621), 2))
-    #print(totalDist)
 
     runCount = str(json_str["runCount"])
-    #print(runCount)
 
-    longRun = str(round((json_str["longestRun"] * 0.621), 2))
-    #print(longRun)
+    if json_str["longestRun"] == None:
+        longRun = '0'
+    else:
+        longRun = str(round((json_str["longestRun"] * 0.621), 2))
 
-    avgLen = str(round((json_str["averageRunLength"] * 0.621), 2))
-    #print(avgLen) 
+    if json_str["averageRunLength"] == None:
+        avgLen = '0'
+    else:
+        avgLen = str(round((json_str["averageRunLength"] * 0.621), 2))
 
 
     dateText = ImageFont.truetype(os.path.join(pic_dir,'BebasNeue-Regular.ttf'), 30, index=0)
