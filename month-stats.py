@@ -5,15 +5,20 @@ import json
 import ast
 import datetime
 from prefect import flow,task
+from prefect.blocks.system import Secret
 from datetime import date
 from dateutil import parser
-from settings import SMASHRUN_TOKEN
+#from settings import SMASHRUN_TOKEN
 from lib.waveshare_epd import epd2in9_V2
 from lib.functions import indent
 from lib.functions import indentThirds
 from PIL import Image, ImageDraw, ImageFont
 
 pic_dir = '/home/pi/eink-running-display/pics'
+secret_block = Secret.load("smashrun-token")
+
+# Access the stored secret
+secret_block.get()
 
 @flow
 def monthly_stats():
@@ -40,7 +45,9 @@ def monthly_stats():
 
         month = today.strftime("%m")
 
-        byte_str = urllib.request.urlopen("https://api.smashrun.com/v1/my/stats/" + year + "/" + month + "?access_token=" + SMASHRUN_TOKEN).read()
+        ##byte_str = urllib.request.urlopen("https://api.smashrun.com/v1/my/stats/" + year + "/" + month + "?access_token=" + SMASHRUN_TOKEN).read()
+
+        byte_str = urllib.request.urlopen("https://api.smashrun.com/v1/my/stats/" + year + "/" + month + "?access_token=" + secret_block.get()).read()
 
         str_str = byte_str.decode('utf-8').strip("[]")
 
