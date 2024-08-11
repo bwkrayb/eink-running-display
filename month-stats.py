@@ -19,15 +19,21 @@ pic_dir = '/home/pi/eink-running-display/pics'
 def monthly_stats():
     try:
         # Display init, clear
-        display = epd2in9_V2.EPD()
-        display.init()
-        display.Clear(0) # 0: Black, 255: White
-
-        w = display.height
-        h = display.width
-        #print('width:', w) 296
-        #print('height:', h) 128
+        @task
+        def display_config():
+            global w
+            global h
+            global display
+            display = epd2in9_V2.EPD()
+            display.init()
+            display.Clear(0) # 0: Black, 255: White
+            w = display.height
+            h = display.width
+            #print('width:', w) 296
+            #print('height:', h) 128
     
+        display_config()
+
         today = date.today()
 
         year = today.strftime("%Y")
