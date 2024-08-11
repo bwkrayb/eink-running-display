@@ -92,4 +92,12 @@ def monthly_stats():
 
 
 if __name__ == "__main__":
-    monthly_stats()
+    #monthly_stats()
+    monthly_stats.serve(
+        name="monthly-stats",
+        cron="* 9,21 * * *",
+        tags=["raspberry-pi", "served-deployment"],
+        description="Prefect serve command running in background from bin/monthly.sh. Kill prefect listening before starting again.",
+        version="2024.08.11",
+        )
+
