@@ -11,7 +11,7 @@ from lib.waveshare_epd import epd2in9_V2
 from lib.functions import indent
 from PIL import Image, ImageDraw, ImageFont
 
-pic_dir = '/home/pi/eink-29/pics'
+pic_dir = '/home/pi/eink-running-display/pics'
 
 try:
     # Display init, clear

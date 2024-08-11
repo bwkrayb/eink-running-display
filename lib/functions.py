@@ -6,7 +6,7 @@ import logging
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 
-logging.basicConfig(level=logging.INFO,filename='/home/pi/eink-29/logs/eink.log')
+logging.basicConfig(level=logging.INFO,filename='/home/pi/eink-running-display/logs/eink.log')
 
 
 def paste(image: Image, position: tuple = (0, 0)) -> None:

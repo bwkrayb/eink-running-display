@@ -12,7 +12,7 @@ from lib.functions import indent
 from lib.functions import indentThirds
 from PIL import Image, ImageDraw, ImageFont
 
-pic_dir = '/home/pi/eink-29/pics'
+pic_dir = '/home/pi/eink-running-display/pics'
 
 try:
     # Display init, clear
