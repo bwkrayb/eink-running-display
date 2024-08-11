@@ -1,0 +1,6 @@
+16:44:42.222 | INFO    | prefect.engine - Created flow run 'active-spoonbill' for flow 'monthly-stats'
+16:44:42.240 | INFO    | Flow run 'active-spoonbill' - View at https://app.prefect.cloud/account/cab3b6eb-109b-49bf-9f5e-7e93e747068c/workspace/0bf41cc1-8270-4e7c-a915-3aa1a84da440/flow-runs/flow-run/9fdadf20-4a3b-4cbe-87cf-213cde8efa47
+16:44:42.619 | INFO    | Flow run 'active-spoonbill' - Created task run 'display_config-0' for task 'display_config'
+16:44:42.626 | INFO    | Flow run 'active-spoonbill' - Executing 'display_config-0' immediately...
+16:44:45.958 | INFO    | Task run 'display_config-0' - Finished in state Completed()
+16:44:49.311 | INFO    | Flow run 'active-spoonbill' - Finished in state Completed('All states completed.')

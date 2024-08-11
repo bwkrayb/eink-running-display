@@ -5,7 +5,7 @@ if __name__ == "__main__":
         source="https://github.com/bwkrayb/eink-running-display.git",
         entrypoint="month-stats.py:monthly_stats",
     ).deploy(
-        name="my-first-deployment",
+        name="monthly-running",
         work_pool_name="my-managed-pool",
-        cron="8 1 * * *",
+        cron="0 12,21 * * *",
     )

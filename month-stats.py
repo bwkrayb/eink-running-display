@@ -17,8 +17,6 @@ from PIL import Image, ImageDraw, ImageFont
 pic_dir = '/home/pi/eink-running-display/pics'
 secret_block = Secret.load("smashrun-token")
 
-# Access the stored secret
-secret_block.get()
 
 @flow
 def monthly_stats():
